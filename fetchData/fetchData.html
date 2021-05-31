@@ -1,0 +1,45 @@
+<template>
+    <template if:true={repos}>
+        <lightning-datatable data={repos} columns={columns} key-field="id" onrowselection={handleSelect}></lightning-datatable> </br>
+        <lightning-button label="ADD DEBT" title="add" onclick={handleAdd} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button label="REMOVE DEBT" title="remove" onclick={handleRemove} class="slds-m-left_x-small" ></lightning-button>
+        <table>
+            <tr style="background-color: #e8f15e">
+                <th>Total</th>
+                <th>balance : {selectedBalance}</th>
+            </tr>
+            <tr>
+                <th>Total Row Count :{totalRowCount}</th>
+                <th>Check Row Count :{checkRowCount}</th>
+            </tr>
+        </table>
+    </template>
+    <template if:false={repos}>
+            <p>Error has occured.Please contact system admin !! </p>
+    </template>
+    <template if:true={showModal}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1"
+		 class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<header class="slds-modal__header">
+                    <lightning-button-icon class="slds-modal__close" onclick={handleCancel} icon-name="utility:close" alternative-text="Close" title="Close"></lightning-button-icon>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">ADD DEBT</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium my-modal-inputs" id="modal-content-id-1">
+                    <div class="slds-grid slds-wrap">
+                    <template if:true={columns} for:each={columns} for:item="column">
+                        <div key={column.fieldName} class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12 slds-p-around_x-small">
+                            <lightning-input name={column.fieldName} label={column.label} value={column.displayValue} onchange={handleInputChange} ></lightning-input>
+                        </div>
+                    </template>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" title="Cancel" onclick={handleCancel} class="slds-m-left_x-small"></lightning-button>
+                    <lightning-button variant="brand" label="Save" title="Save" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>
