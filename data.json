@@ -78,5 +78,13 @@
          "lastName":"Tester79",
          "minPaymentPercentage":3.5,
          "balance":235
+      },
+      {
+         "id":11,
+         "creditorName":"as",
+         "firstName":"Eric",
+         "lastName":"Jackson",
+         "minPaymentPercentage":"1",
+         "balance":"12"
       }
    ]
