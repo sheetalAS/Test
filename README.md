@@ -6,7 +6,8 @@ Steps:
 3)Generate access toten in git and update in lwc.
 4)update endpoint url with your url.
 
-This lwc component saved my time in terms of writting apex and test class.
+
+This lwc component saved my time in terms of writting apex and test class.I have used postman for forming url and testing get and put.
 
 I took time to understand github API.I faced difficulty in forming valid endpoint url.But once it is ready didnot take much time to achieve this.
 
