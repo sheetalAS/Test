@@ -45,7 +45,7 @@ export default class ExploreFetchAPI extends LightningElement {
      // mode: 'no-cors',
       headers: { 
         "Content-Type": "application/json" ,
-        'Authorization' : 'Bearer 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' // access token generated at gitgub
+        'Authorization' : 'Bearer <Add token here>' // access token generated at gitgub
        },
       body: JSON.stringify({ 
         message: 'update the file',
